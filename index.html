@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ziorix Utils</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h1>Ziorix Utils</h1>
+                <p class="sidebar-tagline">Minecraft utility hub</p>
+            </div>
+
+            <nav class="nav-menu" aria-label="Main navigation">
+                <a href="#" class="nav-item active" data-section="home">
+                    <span class="icon">🏠</span>
+                    <span>Home</span>
+                </a>
+                <a href="#" class="nav-item" data-section="tiny-text">
+                    <span class="icon">📜</span>
+                    <span>Tiny Text</span>
+                </a>
+                <a href="#" class="nav-item" data-section="gradient">
+                    <span class="icon">🌈</span>
+                    <span>Gradient Generator</span>
+                </a>
+                <a href="#" class="nav-item" data-section="coordinates">
+                    <span class="icon">🧭</span>
+                    <span>Coordinates Converter</span>
+                </a>
+                <a href="#" class="nav-item" data-section="emoji-browser">
+                    <span class="icon">😀</span>
+                    <span>Emoji Browser</span>
+                </a>
+                <a href="#" class="nav-item" data-section="color-codes">
+                    <span class="icon">🎨</span>
+                    <span>Color Codes</span>
+                </a>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <section class="section active" id="home">
+                <div class="home-container">
+                    <h1 class="welcome-title">⛏️ Welcome to Ziorix Utils</h1>
+                    <p class="welcome-subtitle">Your all-in-one toolkit for Minecraft utilities, gradients, and coordinate helpers.</p>
+
+                    <div class="features-grid">
+                        <div class="feature-card">
+                            <span class="feature-icon">📜</span>
+                            <h3>Tiny Text</h3>
+                            <p>Shrink your message into tiny characters for stylish Minecraft text.</p>
+                        </div>
+                        <div class="feature-card">
+                            <span class="feature-icon">🌈</span>
+                            <h3>Gradient Generator</h3>
+                            <p>Build smooth color gradients for Minecraft chat and server formatting.</p>
+                        </div>
+                        <div class="feature-card">
+                            <span class="feature-icon">🧭</span>
+                            <h3>Coordinates Converter</h3>
+                            <p>Convert Overworld and Nether coordinates with instant updates.</p>
+                        </div>
+                        <div class="feature-card">
+                            <span class="feature-icon">😀</span>
+                            <h3>Emoji Browser</h3>
+                            <p>Find and copy emojis fast for Minecraft chats, bios, and server messages.</p>
+                        </div>
+                        <div class="feature-card">
+                            <span class="feature-icon">🎨</span>
+                            <h3>Color Codes</h3>
+                            <p>Reference the classic Minecraft color palette and chat codes.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section" id="tiny-text">
+                <h2>📜 Tiny Text Converter</h2>
+
+                <div class="input-section">
+                    <label for="normalText">Enter your text:</label>
+                    <textarea id="normalText" placeholder="Type something here..." rows="4"></textarea>
+                </div>
+
+                <div class="output-section">
+                    <label for="tinyText">Tiny text:</label>
+                    <textarea id="tinyText" readonly rows="4"></textarea>
+                    <button id="copyBtn" class="copy-btn">Copy to Clipboard</button>
+                </div>
+            </section>
+
+            <section class="section" id="gradient">
+                <h2>🌈 Gradient Text Generator</h2>
+
+                <div class="input-section">
+                    <label for="gradientInput">Enter your text:</label>
+                    <textarea id="gradientInput" placeholder="Type here to generate a gradient..." rows="4"></textarea>
+                </div>
+
+                <div class="color-controls">
+                    <div class="color-controls-header">
+                        <label>Colors:</label>
+                        <div class="color-buttons">
+                            <button id="addColorBtn" class="small-btn" type="button">+ Add Color</button>
+                            <button id="removeColorBtn" class="small-btn" type="button">- Remove Color</button>
+                        </div>
+                    </div>
+                    <div id="colorStops"></div>
+                </div>
+
+                <div class="format-controls">
+                    <label for="formatSelect">Color Format:</label>
+                    <select id="formatSelect">
+                        <option value="minecraft">&amp;#rrggbb&amp;l</option>
+                        <option value="hex">#rrggbb</option>
+                        <option value="rgb">rgb(r,g,b)</option>
+                    </select>
+                </div>
+
+                <div class="formatting-controls">
+                    <label>Text Formatting:</label>
+                    <div class="formatting-buttons">
+                        <button class="format-btn" data-format="bold" title="Bold" type="button">
+                            <span class="bold-letter">B</span>
+                        </button>
+                        <button class="format-btn" data-format="italic" title="Italic" type="button">
+                            <span class="italic-letter">I</span>
+                        </button>
+                        <button class="format-btn" data-format="underline" title="Underline" type="button">
+                            <span class="underline-letter">U</span>
+                        </button>
+                        <button class="format-btn" data-format="strikethrough" title="Strikethrough" type="button">
+                            <span class="strike-letter">S</span>
+                        </button>
+                        <button class="format-btn" data-format="obfuscated" title="Obfuscated" type="button">
+                            <span>?</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="output-section">
+                    <label for="gradientOutput">Gradient output:</label>
+                    <textarea id="gradientOutput" readonly rows="4"></textarea>
+                    <div class="preview" id="gradientPreview"></div>
+                    <button id="copyGradientBtn" class="copy-btn">Copy to Clipboard</button>
+                </div>
+            </section>
+
+            <section class="section" id="coordinates">
+                <h2>🧭 Coordinates Converter</h2>
+                <p class="section-intro">Convert coordinates between the Overworld and the Nether, or vice versa.</p>
+
+                <div class="coordinates-container">
+                    <div class="coord-section">
+                        <h3>🌍 Overworld Coordinates</h3>
+                        <div class="coord-inputs">
+                            <div class="coord-input-group">
+                                <label for="overworldX">X</label>
+                                <input type="number" id="overworldX" value="0">
+                            </div>
+                            <div class="coord-input-group">
+                                <label for="overworldY">Y</label>
+                                <input type="number" id="overworldY" value="0">
+                            </div>
+                            <div class="coord-input-group">
+                                <label for="overworldZ">Z</label>
+                                <input type="number" id="overworldZ" value="0">
+                            </div>
+                        </div>
+                        <button id="copyOverworld" class="copy-btn">Copy</button>
+                    </div>
+
+                    <div class="coord-section">
+                        <h3>🔥 Nether Coordinates</h3>
+                        <div class="coord-inputs">
+                            <div class="coord-input-group">
+                                <label for="netherX">X</label>
+                                <input type="number" id="netherX" value="0">
+                            </div>
+                            <div class="coord-input-group">
+                                <label for="netherY">Y</label>
+                                <input type="number" id="netherY" value="0">
+                            </div>
+                            <div class="coord-input-group">
+                                <label for="netherZ">Z</label>
+                                <input type="number" id="netherZ" value="0">
+                            </div>
+                        </div>
+                        <button id="copyNether" class="copy-btn">Copy</button>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section" id="emoji-browser">
+                <h2>😀 Emoji Browser</h2>
+                <p class="section-intro">Search a Minecraft-friendly emoji list and click any emoji card to copy it.</p>
+
+                <div class="emoji-toolbar">
+                    <div class="input-section emoji-search-wrap">
+                        <label for="emojiSearch">Search emojis:</label>
+                        <input type="text" id="emojiSearch" placeholder="Search by name or tag, like sword, fire, heart, star...">
+                    </div>
+                    <button id="clearEmojiSearch" class="small-btn" type="button">Clear Search</button>
+                </div>
+
+                <div class="emoji-results-bar">
+                    <span id="emojiResultsCount">0 emojis</span>
+                    <span class="emoji-hint">Click a card to copy</span>
+                </div>
+
+                <div id="emojiGrid" class="emoji-grid"></div>
+            </section>
+
+            <section class="section" id="color-codes">
+                <h2>🎨 Minecraft Color Codes</h2>
+
+                <div class="color-codes-grid">
+                    <div class="color-code-item" style="color: #000000;">
+                        <span class="code">&amp;0</span>
+                        <span class="color-name">Black</span>
+                        <span class="hex-code">#000000</span>
+                    </div>
+                    <div class="color-code-item" style="color: #0000AA;">
+                        <span class="code">&amp;1</span>
+                        <span class="color-name">Dark Blue</span>
+                        <span class="hex-code">#0000AA</span>
+                    </div>
+                    <div class="color-code-item" style="color: #00AA00;">
+                        <span class="code">&amp;2</span>
+                        <span class="color-name">Dark Green</span>
+                        <span class="hex-code">#00AA00</span>
+                    </div>
+                    <div class="color-code-item" style="color: #00AAAA;">
+                        <span class="code">&amp;3</span>
+                        <span class="color-name">Dark Aqua</span>
+                        <span class="hex-code">#00AAAA</span>
+                    </div>
+                    <div class="color-code-item" style="color: #AA0000;">
+                        <span class="code">&amp;4</span>
+                        <span class="color-name">Dark Red</span>
+                        <span class="hex-code">#AA0000</span>
+                    </div>
+                    <div class="color-code-item" style="color: #AA00AA;">
+                        <span class="code">&amp;5</span>
+                        <span class="color-name">Dark Purple</span>
+                        <span class="hex-code">#AA00AA</span>
+                    </div>
+                    <div class="color-code-item" style="color: #FFAA00;">
+                        <span class="code">&amp;6</span>
+                        <span class="color-name">Gold</span>
+                        <span class="hex-code">#FFAA00</span>
+                    </div>
+                    <div class="color-code-item" style="color: #AAAAAA;">
+                        <span class="code">&amp;7</span>
+                        <span class="color-name">Gray</span>
+                        <span class="hex-code">#AAAAAA</span>
+                    </div>
+                    <div class="color-code-item" style="color: #555555;">
+                        <span class="code">&amp;8</span>
+                        <span class="color-name">Dark Gray</span>
+                        <span class="hex-code">#555555</span>
+                    </div>
+                    <div class="color-code-item" style="color: #5555FF;">
+                        <span class="code">&amp;9</span>
+                        <span class="color-name">Blue</span>
+                        <span class="hex-code">#5555FF</span>
+                    </div>
+                    <div class="color-code-item" style="color: #55FF55;">
+                        <span class="code">&amp;a</span>
+                        <span class="color-name">Green</span>
+                        <span class="hex-code">#55FF55</span>
+                    </div>
+                    <div class="color-code-item" style="color: #55FFFF;">
+                        <span class="code">&amp;b</span>
+                        <span class="color-name">Aqua</span>
+                        <span class="hex-code">#55FFFF</span>
+                    </div>
+                    <div class="color-code-item" style="color: #FF5555;">
+                        <span class="code">&amp;c</span>
+                        <span class="color-name">Red</span>
+                        <span class="hex-code">#FF5555</span>
+                    </div>
+                    <div class="color-code-item" style="color: #FF55FF;">
+                        <span class="code">&amp;d</span>
+                        <span class="color-name">Light Purple</span>
+                        <span class="hex-code">#FF55FF</span>
+                    </div>
+                    <div class="color-code-item" style="color: #FFFF55;">
+                        <span class="code">&amp;e</span>
+                        <span class="color-name">Yellow</span>
+                        <span class="hex-code">#FFFF55</span>
+                    </div>
+                    <div class="color-code-item" style="color: #FFFFFF;">
+                        <span class="code">&amp;f</span>
+                        <span class="color-name">White</span>
+                        <span class="hex-code">#FFFFFF</span>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
